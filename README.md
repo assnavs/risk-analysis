@@ -178,7 +178,7 @@ Portions of this code were generated with AI assistance (Claude by Anthropic). A
 
 | Name | Roll Number | Contribution |
 |------|-------------|--------------|
-| [Your Name] | [Your Roll Number] | All 10 modules, data pipeline, UI/UX |
+| Assna VS | LC25MCA021 | All 10 modules, data pipeline, UI/UX |
 
 ---
 
