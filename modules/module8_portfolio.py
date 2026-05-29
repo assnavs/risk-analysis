@@ -106,7 +106,7 @@ def render_portfolio(all_returns_df, selected_ticker):
             color=sharpe_vals,
             colorscale="Viridis",
             size=4, opacity=0.6,
-            colorbar=dict(title="Sharpe Ratio", tickfont=dict(color="#ccd6f6"), titlefont=dict(color="#ccd6f6"))
+            colorbar=dict(title=dict(text="Sharpe Ratio", font=dict(color="#ccd6f6")), tickfont=dict(color="#ccd6f6"))
         ),
         name="Random Portfolios",
         text=[f"Sharpe: {s:.2f}" for s in sharpe_vals],
@@ -134,7 +134,7 @@ def render_portfolio(all_returns_df, selected_ticker):
         title=dict(text=f"Efficient Frontier — {len(selected_assets)} Assets, 5,000 Portfolios",
                    font=dict(color="#64ffda", size=14))
     )
-    st.plotly_chart(ef_fig, use_container_width=True)
+    st.plotly_chart(ef_fig, width="stretch")
 
     # ── Optimal Allocation (8c) ────────────────────────────
     st.markdown("#### 🥧 Optimal Portfolio Allocation")
@@ -154,7 +154,7 @@ def render_portfolio(all_returns_df, selected_ticker):
             height=350, margin=dict(l=10, r=10, t=10, b=10),
             legend=dict(bgcolor="rgba(0,0,0,0)")
         )
-        st.plotly_chart(pie_fig, use_container_width=True)
+        st.plotly_chart(pie_fig, width="stretch")
 
     with metrics_col:
         st.markdown(f"""
@@ -192,7 +192,7 @@ def render_portfolio(all_returns_df, selected_ticker):
         yaxis=dict(gridcolor="#2d3561", title="Weight (%)"),
         showlegend=False
     )
-    st.plotly_chart(w_fig, use_container_width=True)
+    st.plotly_chart(w_fig, width="stretch")
 
 
 def px_colors(n):

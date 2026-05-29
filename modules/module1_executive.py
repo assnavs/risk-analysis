@@ -150,7 +150,7 @@ def render_executive_summary(df, ticker, all_tickers_df):
             <div class='kpi-change {chg_color}'>{chg_arrow} {kpi['price_change_pct']:.2f}%</div>
         </div>
         """, unsafe_allow_html=True)
-        st.plotly_chart(sparkline(close.tail(30).values, "#64ffda"), use_container_width=True, key="spark1")
+        st.plotly_chart(sparkline(close.tail(30).values, "#64ffda"), width="stretch", key="spark1")
 
     with c2:
         fc_chg = (kpi["forecast_price"] - kpi["current_price"]) / kpi["current_price"] * 100
@@ -163,7 +163,7 @@ def render_executive_summary(df, ticker, all_tickers_df):
         </div>
         """, unsafe_allow_html=True)
         trend_vals = np.linspace(kpi["current_price"], kpi["forecast_price"], 30)
-        st.plotly_chart(sparkline(trend_vals, "#4fc3f7"), use_container_width=True, key="spark2")
+        st.plotly_chart(sparkline(trend_vals, "#4fc3f7"), width="stretch", key="spark2")
 
     with c3:
         mos_color = "positive" if kpi["margin_of_safety"] > 0 else "negative"
@@ -174,7 +174,7 @@ def render_executive_summary(df, ticker, all_tickers_df):
             <div class='kpi-change {mos_color}'>MoS: {kpi['margin_of_safety']:.2f}%</div>
         </div>
         """, unsafe_allow_html=True)
-        st.plotly_chart(sparkline([kpi["current_price"]] * 15 + [kpi["dcf_intrinsic"]] * 15, "#ab47bc"), use_container_width=True, key="spark3")
+        st.plotly_chart(sparkline([kpi["current_price"]] * 15 + [kpi["dcf_intrinsic"]] * 15, "#ab47bc"), width="stretch", key="spark3")
 
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -272,4 +272,4 @@ def render_executive_summary(df, ticker, all_tickers_df):
         yaxis=dict(gridcolor="#2d3561", title="Price (INR)"),
         legend=dict(bgcolor="rgba(0,0,0,0)")
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")

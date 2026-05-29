@@ -138,7 +138,7 @@ def render_arima(df, ticker):
         title=dict(text=f"ARIMA({p},{d},{q}) Forecast — {ticker}",
                    font=dict(color="#64ffda", size=14))
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     # ── Model Summary ─────────────────────────────────────
     st.markdown("#### 📋 Model Summary")
@@ -188,7 +188,7 @@ def render_arima(df, ticker):
         title=dict(text=f"Walk-Forward: In-Sample RMSE ₹{rmse:.2f} | OOS RMSE ₹{oos_rmse:.2f}",
                    font=dict(color="#64ffda", size=13))
     )
-    st.plotly_chart(wf_fig, use_container_width=True)
+    st.plotly_chart(wf_fig, width="stretch")
 
     wf_tbl = go.Figure(data=[go.Table(
         header=dict(
@@ -207,4 +207,4 @@ def render_arima(df, ticker):
     )])
     wf_tbl.update_layout(paper_bgcolor="#0e1117",
                           margin=dict(l=0,r=0,t=0,b=0), height=180)
-    st.plotly_chart(wf_tbl, use_container_width=True)
+    st.plotly_chart(wf_tbl, width="stretch")

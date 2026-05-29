@@ -134,7 +134,7 @@ def render_dcf(df, ticker):
         yaxis=dict(gridcolor="#2d3561", title="Present Value (₹ Billions)"),
         title=dict(text="DCF Valuation — Present Value Components", font=dict(color="#64ffda", size=14))
     )
-    st.plotly_chart(wf_fig, use_container_width=True)
+    st.plotly_chart(wf_fig, width="stretch")
 
     # ── DCF Summary Table ──────────────────────────────────
     st.markdown("#### 📋 DCF Summary Table")
@@ -173,7 +173,7 @@ def render_dcf(df, ticker):
             paper_bgcolor="#0e1117", margin=dict(l=0, r=0, t=0, b=0),
             height=max(250, len(dcf_rows) * 30)
         )
-        st.plotly_chart(tbl_fig, use_container_width=True)
+        st.plotly_chart(tbl_fig, width="stretch")
 
     with col_mos:
         # Gauge for Margin of Safety
@@ -199,7 +199,7 @@ def render_dcf(df, ticker):
             paper_bgcolor="#0e1117", font=dict(color="#ccd6f6"),
             height=300, margin=dict(l=20, r=20, t=40, b=20)
         )
-        st.plotly_chart(gauge_fig, use_container_width=True)
+        st.plotly_chart(gauge_fig, width="stretch")
         st.markdown(f"""
         <div class='metric-row' style='border-color:{mos_color};'>
             <div class='metric-label'>Valuation Status</div>

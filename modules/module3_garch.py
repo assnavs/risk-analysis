@@ -98,7 +98,7 @@ def render_garch(df, ticker):
         legend=dict(bgcolor="rgba(0,0,0,0)"),
         title=dict(text=f"GARCH(1,1) Conditional Volatility — {ticker}", font=dict(color="#64ffda", size=14))
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     # ── Summary Stats ─────────────────────────────────────
     st.markdown("#### 📋 Volatility Summary")
@@ -166,4 +166,4 @@ def render_garch(df, ticker):
         yaxis=dict(gridcolor="#2d3561", title="Frequency"),
         showlegend=False
     )
-    st.plotly_chart(hist_fig, use_container_width=True)
+    st.plotly_chart(hist_fig, width="stretch")

@@ -129,7 +129,7 @@ def render_stress_testing(df, all_returns_df, ticker):
     tbl.update_layout(paper_bgcolor="#0e1117",
                       margin=dict(l=0,r=0,t=0,b=0),
                       height=max(200, len(scenarios_list)*36+50))
-    st.plotly_chart(tbl, use_container_width=True)
+    st.plotly_chart(tbl, width="stretch")
 
     # ── Horizontal Bar Chart (9c) ──────────────────────────
     st.markdown("#### 📊 Scenario Impact Chart")
@@ -159,7 +159,7 @@ def render_stress_testing(df, all_returns_df, ticker):
         title=dict(text="Scenario Impact Analysis — Factor-Based P&L",
                    font=dict(color="#64ffda", size=14))
     )
-    st.plotly_chart(bar_fig, use_container_width=True)
+    st.plotly_chart(bar_fig, width="stretch")
 
     # ── Risk Narrative (9d) ───────────────────────────────
     st.markdown("#### 📝 Dynamic Risk Interpretation")

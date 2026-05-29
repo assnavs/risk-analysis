@@ -95,7 +95,7 @@ def render_var(df, ticker):
         )
     )])
     tbl_fig.update_layout(paper_bgcolor="#0e1117", margin=dict(l=0, r=0, t=0, b=0), height=160)
-    st.plotly_chart(tbl_fig, use_container_width=True)
+    st.plotly_chart(tbl_fig, width="stretch")
 
     # CVaR info
     st.markdown(f"""
@@ -153,7 +153,7 @@ def render_var(df, ticker):
             barmode="overlay",
             title=dict(text="Monte Carlo Loss Distribution (10,000 paths)", font=dict(color="#64ffda", size=13))
         )
-        st.plotly_chart(loss_fig, use_container_width=True)
+        st.plotly_chart(loss_fig, width="stretch")
 
     # ── Kupiec Test (6d) ──────────────────────────────────
     with col_kupiec:
@@ -191,7 +191,7 @@ def render_var(df, ticker):
         k_fig.update_layout(
             paper_bgcolor="#0e1117", margin=dict(l=0, r=0, t=0, b=0), height=260
         )
-        st.plotly_chart(k_fig, use_container_width=True)
+        st.plotly_chart(k_fig, width="stretch")
 
         st.markdown(f"""
         <div class='insight-box' style='border-color:{verdict_color};'>

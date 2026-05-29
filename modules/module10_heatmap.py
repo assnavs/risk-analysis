@@ -53,9 +53,8 @@ def render_heatmap(all_returns_df, selected_ticker):
         texttemplate="%{text}",
         textfont=dict(size=13, color="black"),
         colorbar=dict(
-            title="Correlation",
+            title=dict(text="Correlation", font=dict(color="#ccd6f6")),
             tickfont=dict(color="#ccd6f6"),
-            titlefont=dict(color="#ccd6f6"),
             tickvals=[-1, -0.5, 0, 0.5, 1],
             ticktext=["-1.0<br>(Inverse)", "-0.5", "0<br>(None)", "0.5", "+1.0<br>(Perfect)"]
         )
@@ -83,7 +82,7 @@ def render_heatmap(all_returns_df, selected_ticker):
         title=dict(text="Asset Correlation Matrix (Daily Log Returns)", font=dict(color="#64ffda", size=14)),
         xaxis=dict(side="bottom"),
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     # Warning legend
     st.caption("⚠ = |correlation| > 0.70 — high co-movement reduces diversification benefit")
@@ -156,7 +155,7 @@ def render_heatmap(all_returns_df, selected_ticker):
         yaxis=dict(gridcolor="#2d3561", title="Count"),
         showlegend=False
     )
-    st.plotly_chart(hist_fig, use_container_width=True)
+    st.plotly_chart(hist_fig, width="stretch")
 
     # Full Correlation Table
     st.markdown("#### 📋 Full Correlation Table")
@@ -164,6 +163,6 @@ def render_heatmap(all_returns_df, selected_ticker):
     st.dataframe(
         styled_df.style.background_gradient(cmap="RdBu_r", vmin=-1, vmax=1)
                         .format("{:.4f}"),
-        use_container_width=True,
+        width="stretch",
         height=min(400, n * 40 + 60)
     )

@@ -137,7 +137,7 @@ def render_credit_risk(df, ticker):
             paper_bgcolor="#0e1117", font=dict(color="#ccd6f6"),
             height=320, margin=dict(l=20, r=20, t=50, b=0)
         )
-        st.plotly_chart(gauge_fig, use_container_width=True)
+        st.plotly_chart(gauge_fig, width="stretch")
 
     with m_col:
         pd_color = "#64ffda" if pd_prob < 5 else "#ffd93d" if pd_prob < 15 else "#ff6b6b"
@@ -203,7 +203,7 @@ def render_credit_risk(df, ticker):
             margin=dict(l=10, r=10, t=30, b=10),
             title=dict(text="Confusion Matrix", font=dict(color="#64ffda", size=13))
         )
-        st.plotly_chart(cm_fig, use_container_width=True)
+        st.plotly_chart(cm_fig, width="stretch")
 
     # ── PD Trend (15-month simulation) ────────────────────
     st.markdown("#### 📈 15-Month PD Trend (Simulated)")
@@ -242,4 +242,4 @@ def render_credit_risk(df, ticker):
         yaxis=dict(gridcolor="#2d3561", title="Probability of Default (%)"),
         title=dict(text="15-Month PD Trend Simulation", font=dict(color="#64ffda", size=13))
     )
-    st.plotly_chart(trend_fig, use_container_width=True)
+    st.plotly_chart(trend_fig, width="stretch")
