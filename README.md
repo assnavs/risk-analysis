@@ -184,7 +184,7 @@ Portions of this code were generated with AI assistance (Claude by Anthropic). A
 
 ## 🌐 Live Dashboard
 
-*Link will be added after deployment to Streamlit Cloud.*
+*https://risk-analysis-vs.streamlit.app/*
 
 ---
 
